@@ -79,7 +79,7 @@ And the producer:
 
 ### Deployment
 
-Kubernetes would fit this project really well. Rolling updates are especially useful here, since we don’t want downtime while deploying new versions. Setting a proper rolling update strategy would make sure there’s always at least one consumer up and running, processing messages and detecting anomalies. That’s also why the health check mentioned above matters.jjjj
+Kubernetes would fit this project really well. Rolling updates are especially useful here, since we don’t want downtime while deploying new versions. Setting a proper rolling update strategy would make sure there’s always at least one consumer up and running, processing messages and detecting anomalies. That’s also why the health check mentioned above matters.
 
 ```yaml
 spec:
