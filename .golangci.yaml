@@ -1,0 +1,15 @@
+version: "2"
+
+run:
+  timeout: 1m
+
+linters:
+  enable:
+    - gosec
+  exclusions:
+    paths:
+      - cmd/producer/producer.go
+
+formatters:
+  enable:
+    - gofmt

@@ -1,0 +1,27 @@
+services:
+  redis:
+    image: redis:8.2-alpine
+    ports:
+      - 6379:6379
+
+  consumer:
+    build: .
+    depends_on:
+      - redis
+    command:
+      - consumer
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - REDIS_PUBSUB_CHANNEL=data
+      - Z_SCORE_THRESHOLD=3.0
+      - DETECTOR_WINDOW_SIZE=50
+
+  producer:
+    build: .
+    depends_on:
+      - redis
+    command:
+      - producer
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - PRODUCER_THROUGHPUT_PER_SECOND=10
